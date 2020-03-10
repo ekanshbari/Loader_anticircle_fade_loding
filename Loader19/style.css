@@ -1,0 +1,90 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
+*, *:before, *:after {
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Open Sans', Arial;
+  font-size: 15px;
+  background-image: radial-gradient(circle farthest-corner at center, #3C4B57 0%, #131a1d 100%);
+}
+
+.spinner {
+  position: relative;
+  width: auto;
+  pointer-events: all;
+  z-index: 1;
+}
+.spinner .loading-container {
+  position: relative;
+  margin: 0 auto;
+  width: 50px;
+  height: 50px;
+  opacity: 0.9;
+}
+.loading-container .ball {
+  position: absolute;
+  margin: 0 auto;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid #2196f3;
+  border-top: 2px solid rgba(0, 0, 0, 0);
+/*   border-left: 2px solid rgba(0, 0, 0, 0); */
+  border-radius: 50%;
+  /*box-shadow: 0 0 25px rgb(33, 135, 231);*/
+  opacity: 0.9;
+  animation: spin 1s infinite linear;
+}
+.loading-container .ball-inner {
+  position: absolute;
+  margin: 0;
+  top: calc((100% - 25px) / 2);
+  left: calc((100% - 25px) / 2);
+  width: 25px;
+  height: 25px;
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid #ffc107;
+  border-top: 2px solid rgba(0, 0, 0, 0);
+  border-left: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 50%;
+  /*box-shadow: 0 0 15px rgb(33, 135, 231);*/
+  opacity: 0.9;
+  animation: spin 0.5s infinite reverse linear;
+}
+.ball-text {
+  position: relative;
+  margin: 15px 0 0;
+  width: auto;
+  font-size: 15px;
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  text-transform: uppercase;
+  opacity: 0.8;
+  animation: pulse 1s infinite alternate ease-in-out;
+  /*text-shadow: 0 0 5px rgba(33, 150, 243, .25), 0 0 5px rgba(33, 150, 243, .25), 0 0 5px rgba(33, 150, 243, .25);*/
+}
+@keyframes pulse {
+  0% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.1;
+  }
+}
+@keyframes spin {
+  0% {
+    transform:rotate(0deg);
+  }
+  100% { 
+    transform:rotate(360deg); 
+  }
+}
